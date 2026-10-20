@@ -1,0 +1,39 @@
+# ChatGPT / GPT supplemental rules for Surge
+# Source reference: https://ip.net.coffee/gpt/site.html
+# Maintained snapshot: 2026-10-20; not an automatically synchronized upstream feed.
+# No proxy credentials or subscription URLs are stored in this file.
+# Policy is assigned by the importing RULE-SET line (AIGC).
+
+# Core domains: suffix matching also covers API and authentication subdomains.
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,chat.com
+DOMAIN-SUFFIX,sora.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,crixet.com
+
+# CDN and backend hosts listed by the source.
+DOMAIN,openai.com.cdn.cloudflare.net
+DOMAIN,openaicom.imgix.net
+DOMAIN,openaiapi-site.azureedge.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
+# Azure Web PubSub is shared infrastructure; this suffix also matches other apps.
+DOMAIN-SUFFIX,webpubsub.azure.com
+
+# Verification endpoints; avoid matching all arkoselabs.com hosts.
+DOMAIN-SUFFIX,client-api.arkoselabs.com
+DOMAIN,openai-api.arkoselabs.com
+
+# Voice / realtime endpoints; some hosts may also be used by other applications.
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,turn.livekit.cloud
+
+# Telemetry endpoints listed by the source, without broad keyword rules.
+DOMAIN,o33249.ingest.sentry.io
+DOMAIN,browser-intake-datadoghq.com
+
+# No broad CDN IP/ASN, NTP, or process-wide proxy rules are added.
