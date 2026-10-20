@@ -1,0 +1,41 @@
+# Claude supplemental rules for Surge
+# Source reference: https://ip.net.coffee/claude/site.html
+# Maintained snapshot: 2026-10-20; not an automatically synchronized upstream feed.
+# No proxy credentials or subscription URLs are stored in this file.
+# Policy is assigned by the importing RULE-SET line (AIGC).
+
+# Core services, including the short domain and MCP endpoints
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claudeusercontent.com
+
+# CDN, authentication and content
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic-com.ghost.io
+
+# Shared telemetry services: these also match traffic from other applications.
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN,browser-intake-us5-datadoghq.com
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sentry
+DOMAIN-KEYWORD,sift
+
+# Shared support widgets and analytics
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN,cdn.usefathom.com
+
+# Anthropic allocations and ASN verified against ARIN RDAP.
+# no-resolve avoids triggering DNS solely for these fallback rules.
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6bc0::/32,no-resolve
+IP-ASN,399358,no-resolve
+
+# NTP is intentionally unchanged: NTP provides time, not a geographic timezone.
